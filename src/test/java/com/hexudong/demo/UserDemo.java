@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.hexudong.dao.UserDao;
-import com.hexudong.pojo.User;
+import com.hexudong.cms.dao.UserDao;
+import com.hexudong.cms.pojo.User;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

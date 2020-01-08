@@ -7,9 +7,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <!-- 别名配置 -->
  <typeAliases>
     <!-- todo -->
-   <package name="com.hexudong.pojo"/>
+   <package name="com.hexudong.cms.pojo"/>
    <!-- todo -->
-   <package name="com.hexudong.vo"/>
  </typeAliases>
  
  
