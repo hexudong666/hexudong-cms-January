@@ -4,11 +4,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hexudong.cms.dao.SlideDao">
 
-	<select id="select" resultType="com.hexudong.cms.pojo.Slide">
+	<select id="list" resultType="com.hexudong.cms.pojo.Slide">
 		SELECT * FROM cms_slide
 	</select>
 
-	<select id="selectById" resultType="com.hexudong.cms.pojo.Slide">
+	<select id="listById" resultType="com.hexudong.cms.pojo.Slide">
 		SELECT * FROM cms_slide WHERE id=#{id}
 	</select>
 
