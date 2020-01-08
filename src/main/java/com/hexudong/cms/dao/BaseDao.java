@@ -16,5 +16,5 @@ public 	interface BaseDao<T> {
 	
 	int Update(T t);
 	
-	int Deletes(@Param("id")String id);
+	int Deletes(@Param("ids")String ids);
 }

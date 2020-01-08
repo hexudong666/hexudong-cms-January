@@ -4,20 +4,19 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.hexudong.cms.dao.BaseDao;
-import com.hexudong.cms.pojo.Tag;
+import com.hexudong.cms.pojo.ArticleTag;
 import com.hexudong.cms.pojo.User;
 
-public interface ArticleTagDao extends BaseDao<Tag>{
+public interface ArticleTagDao extends BaseDao<ArticleTag>{
 
-	List<Tag> List(Tag tag);
+	List<ArticleTag> List(ArticleTag tag);
 	
-	User ListById(@Param("aid")Integer aid);
+	User ListById(@Param("aid")Integer aid,@Param("tid")Integer tid);
 	
-	int insert(Tag tag);
+	int insert(ArticleTag tag);
 	
-	int Update(Tag tag);
+	int Update(ArticleTag tag);
 	
-	int Deletes(@Param("aids")String aids);
+	int Deletes(@Param("ids")String aids);
 
 }

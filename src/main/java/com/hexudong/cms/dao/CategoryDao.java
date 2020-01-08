@@ -11,12 +11,12 @@ public interface CategoryDao extends BaseDao<Category>{
 
 	List<Category> List(Category category);
 	
-	User ListById(@Param("aid")Integer aid);
+	User ListById(@Param("id")Integer id);
 	
 	int insert(Category category);
 	
 	int Update(Category category);
 	
-	int Deletes(@Param("aids")String aids);
+	int Deletes(@Param("ids")String ids);
 
 }
