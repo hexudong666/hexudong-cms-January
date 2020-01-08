@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hexudong.dao.ArticleTagDao">
+<mapper namespace="com.hexudong.dao.CommentDao">
 
 	<select id="select" resultType="com.hexudong.pojo.ArticleTag">
 		SELECT * FROM cms_comment
