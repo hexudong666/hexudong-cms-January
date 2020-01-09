@@ -12,6 +12,7 @@ public class UserController {
 		return "user/center";
 	}
 	
+	
 	@RequestMapping("/login")
 	public String login() {
 		return "user/login";

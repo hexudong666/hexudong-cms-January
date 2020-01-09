@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.hexudong.utils.entity.FileUtils;
+import com.hexudong.utils.entity.FileUtil;
 
 
 @Controller
 @RequestMapping("/file/")
 public class FileController {
+	
 	
 	//文件路径
 	@Value("${upload.path}")
@@ -43,7 +44,7 @@ public class FileController {
 		Map<String,Object> result = new HashMap<>();
 		result.put("error", 1);
 		if(file.getSize()>0) {
-			String extName = FileUtils.getExtName(file.getOriginalFilename());
+			String extName = FileUtil.getExtName(file.getOriginalFilename());
 			String fileName = UUID.randomUUID()+extName;
 			String fileFullName = filePath+fileName;
 			try {

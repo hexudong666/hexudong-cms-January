@@ -37,7 +37,7 @@
 		<div class="col-sm-5">
 			<jsp:include page="../common/file.jsp">
 				<jsp:param name="fieldName" value="picture"/>
-				<jsp:param name="fieldValue" value="/pic/99359061-9fe1-4d3d-9ece-5157d30564ed.jpg"/>
+				<jsp:param name="fieldValue" value="/public/images/upload.jpg"/>
 			</jsp:include>
 		</div>
 	</div>

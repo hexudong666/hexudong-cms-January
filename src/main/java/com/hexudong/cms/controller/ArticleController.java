@@ -17,6 +17,7 @@ public class ArticleController {
 	public String add() {
 		return "article/add";
 	}
+	
 	/**
 	 * @Title: articles   
 	 * @Description: 文章管理（我的文章）   

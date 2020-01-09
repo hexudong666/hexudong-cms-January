@@ -11,6 +11,7 @@ public class IndexController {
 	public String index() {
 		return "index";
 	}
+
 	
 	//文章详情
 	@RequestMapping("/article/detail/{id}.html")
