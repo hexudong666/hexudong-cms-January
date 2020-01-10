@@ -9,23 +9,8 @@
 <link href="/public/css/index.css" rel="stylesheet">
 </head>
 <body>
-	<div style="background-image: url('/public/images/house.jpg');">
 	<!-- 头部导航 -->
-	<div class="header">
-		<ul class="nav">
-			<li class="nav-item" style="margin-left: 12px;"><a
-				class="navbar-brand" href="#"> <img	src="/public/images/logo.png" width="30" height="30" alt="">
-			</a></li>
-			<li class="nav-item"><a class="nav-link active" href="/">首页</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="/user/center">个人中心</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="/user/login">登录</a>
-			</li>
-			<li class="nav-item"><a class="nav-link disabled" href="#"
-				tabindex="-1" aria-disabled="true">退出</a></li>
-		</ul>
-	</div>
+	<jsp:include page="./common/user/head-top.jsp"></jsp:include>
 
 	<div class="container-fluid" style="margin-top: 6px;">
 		<div class="row offset-1">
@@ -34,11 +19,9 @@
 				<h2>1710F<br>贺旭东</h2>
 				<ul class="nav flex-column">
 					<li class="nav-item "><a class="nav-link" href="#">热点</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#">科技</a>
-					</li>
+					<li class="nav-item"><a class="nav-link active" href="#">科技</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">旅游</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href="#"
-						tabindex="-1" aria-disabled="true">Disabled</a></li>
+					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
 				</ul>
 
 			</div>
