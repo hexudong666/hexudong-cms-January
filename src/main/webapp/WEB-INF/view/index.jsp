@@ -9,6 +9,7 @@
 <link href="/public/css/index.css" rel="stylesheet">
 </head>
 <body>
+	<div style="background-image: url('/public/images/boat.jpg');"><!-- 背景图 -->
 	<!-- 头部导航 -->
 	<jsp:include page="./common/user/head-top.jsp"></jsp:include>
 
@@ -161,5 +162,6 @@
 	</div>
 	<script src="/public/js/jquery.min.1.12.4.js"></script>
 	<script src="/public/js/bootstrap.min.js"></script>
+	</div>
 </body>
 </html>
