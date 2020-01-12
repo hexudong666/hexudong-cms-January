@@ -72,4 +72,52 @@ public interface ArticleService {
 	 * @throws
 	 */
 	boolean deleteByIds(String ids);
+	/**
+	 * @Title: getHotList   
+	 * @Description: 按分页查询热点文章   
+	 * @param: @param i
+	 * @param: @param j
+	 * @param: @return      
+	 * @return: List<Slide>      
+	 * @throws
+	 */
+	PageInfo<Article> getHotList(int pageNum, int pageSize);
+	/**
+	 * @Title: getList   
+	 * @Description: 根据频道Id和分类Id查询文章（分页）   
+	 * @param: @param channelId
+	 * @param: @param cateId
+	 * @param: @param i
+	 * @param: @param pageNum
+	 * @param: @return      
+	 * @return: PageInfo<Article>      
+	 * @throws
+	 */
+	PageInfo<Article> getList(Integer channelId, Integer cateId, Integer pageNum, Integer pageSize);
+	/**
+	 * @Title: getChannelByChannelId   
+	 * @Description: 根据Id查询频道   
+	 * @param: @param channelId
+	 * @param: @return      
+	 * @return: Channel      
+	 * @throws
+	 */
+	Channel getChannelByChannelId(Integer channelId);
+	/**
+	 * @Title: check   
+	 * @Description: 文章审核  
+	 * @param: @param article
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean check(Article article);
+	/**
+	 * @Title: setHitsAndHot   
+	 * @Description: 设置文章点击量，若点击量大于20成为热点文章    
+	 * @param: @param id      
+	 * @return: void      
+	 * @throws
+	 */
+	void setHitsAndHot(Integer id);
 }

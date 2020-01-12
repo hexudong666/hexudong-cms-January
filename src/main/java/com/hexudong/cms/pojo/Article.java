@@ -8,6 +8,11 @@ public class Article {
 	private String channel_name;
 	/** 所属分类 **/
 	private String category_name;
+	/** 用户昵称 **/
+	private String nickname;
+	
+	private String statusStr;
+	
 	
 	/**  **/
 	private Integer id;
@@ -39,6 +44,14 @@ public class Article {
 	private Integer commentCnt;
 	/** 投诉次数 **/
 	private Integer tousuCnt;
+	
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -47,6 +60,12 @@ public class Article {
 	}
 	public String getTitle() {
 		return title;
+	}
+	public String getStatusStr() {
+		return statusStr;
+	}
+	public void setStatusStr(String statusStr) {
+		this.statusStr = statusStr;
 	}
 	public void setTitle(String title) {
 		this.title = title;

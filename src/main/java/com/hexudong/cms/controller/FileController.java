@@ -18,12 +18,9 @@ import com.hexudong.utils.entity.FileUtil;
 @RequestMapping("/file/")
 public class FileController {
 	
-	
-	//文件路径
 	@Value("${upload.path}")
 	private String filePath;
 	
-	//文件物理路径
 	@Value("${pic.path}")
 	private String picPath;
 	/**
