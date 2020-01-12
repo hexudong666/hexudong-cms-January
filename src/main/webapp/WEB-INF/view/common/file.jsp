@@ -3,7 +3,7 @@
 <%
 	String fieldName = request.getParameter("fieldName");
 	String fieldValue =  request.getParameter("fieldValue");
-	String fieldValueStr = fieldValue==null || "".equals(fieldValue)?"/public/images/upload.jpg":fieldValue;
+	String fieldValueStr = fieldValue==null || "".equals(fieldValue)?"/public/img/upload.jpg":fieldValue;
 %>
 <div class="input-prepend">
 	<div class="imgDive">
