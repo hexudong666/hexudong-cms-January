@@ -52,8 +52,7 @@
 		<!-- 关联mybatis配置文件 -->
 		<!-- todo -->
 		<property name="configLocation" value="classpath:mybatis.xml"></property>
-	    <property name="mapperLocations" value="classpath:mybatis/*.xml"></property>
-	
+		<property name="mapperLocations" value="classpath:mybatis/*.xml"></property>
 	</bean>
 
 	<!--5、 配置jdbc事务管理器 -->
@@ -82,9 +81,8 @@
 	<!-- 7、配置aop -->
 	<aop:config>
 		<!-- 配置切点表达式 -->
-		<!-- todo -->
-		<aop:pointcut 
-			expression="execution(* com.hexudong.cms.service.*.*(..))" id="pointcut" />
+		<aop:pointcut
+			expression="execution(* com.hexudong.cms.service.impl.*.*(..))" id="pointcut" />
 		<!-- 关联事务 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
 

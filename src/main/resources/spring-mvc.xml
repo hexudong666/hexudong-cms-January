@@ -22,33 +22,34 @@
 		<!-- 配置后缀 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
-	<!-- 配置权限的拦截器 -->
-	<!-- <mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/>
-			<mvc:exclude-mapping path="/user/login"/>
-			<mvc:exclude-mapping path="/user/register"/>
-			<mvc:exclude-mapping path="/"/>
-			<mvc:exclude-mapping path="/index"/>
-			<mvc:exclude-mapping path="/pic/**"/>
-			<mvc:exclude-mapping path="/resource/**"/>
-			<mvc:exclude-mapping path="/article/showdetail"/>
-			<bean class="com.hexudong.web.UserInterceptor"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors> -->
-	
-	<!-- 上传下载配置 -->	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="defaultEncoding" value="utf-8"></property>
-		<property name="maxUploadSize" value="10485760000"></property>
-	</bean>
-	
-	<!-- <bean class=""></bean> -->
+
 	<!-- 不拦截静态资源 -->
 	<mvc:default-servlet-handler/>
 	<!-- mvc注解驱动 -->
 	<mvc:annotation-driven/>
 	
+	<!-- 文件上传的处理类 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/user/login"/>
+			<mvc:exclude-mapping path="/user/register"/>
+			<mvc:exclude-mapping path="/user/signOut"/>
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/**/*.html"/>
+			<mvc:exclude-mapping path="/public/**"/>
+			<bean class="com.hexudong.cms.common.UserAuthInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/admin/"/>
+			<mvc:exclude-mapping path="/admin/login"/>
+			<mvc:exclude-mapping path="/admin/signOut"/>
+			<bean class="com.hexudong.cms.common.UserAdminAuthInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

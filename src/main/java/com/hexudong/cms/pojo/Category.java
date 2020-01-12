@@ -25,8 +25,11 @@ public class Category {
 	public void setChannel_id(Integer channel_id) {
 		this.channel_id = channel_id;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", channel_id=" + channel_id + "]";
+	}
+
 	
 
 

@@ -17,47 +17,44 @@
 	<div class="container-fluid" style="margin-top: 6px;">
 		<div class="row offset-1">
 			<!-- 频道 -->
-			<div class="col-1">
-				<h2>1710F<br>贺旭东</h2>
+			<div class="col-1" style="padding-right: 5px;padding-left: 5px;">
+				<h2>1710F</h2>
 				<ul class="nav flex-column">
-					<li class="nav-item "><a class="nav-link" href="#">热点</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#">科技</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">旅游</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+					<li class="nav-item "><a class="nav-link <c:if test="${channelId==null }">active</c:if>" href="/">热点</a></li>
+					<c:forEach items="${channelList }" var="item">
+						<c:if test="${channelId==item.id }">
+							<li class="nav-item"><a class="nav-link active"   href="/${item.id }/0/1.html">${item.name }</a></li>
+						</c:if>
+						<c:if test="${channelId!=item.id }">
+							<li class="nav-item"><a class="nav-link"  href="/${item.id }/0/1.html">${item.name }</a></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 
 			</div>
 			<div class="col-6">
 				<!-- 轮播图 -->
-				<div id="carouselExampleControls" class="carousel slide"
-					data-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img
-								src="/public/images/car1.jpg"
-								height="386px;" class="d-block w-100" alt="...">
+				<c:if test="${channelId==null }">
+					<div id="carouselExampleControls" class="carousel slide"
+						data-ride="carousel">
+						<div class="carousel-inner">
+							<c:forEach items="${slideList }" var="item" varStatus="status">
+								<div class="carousel-item <c:if test="${status.index==0 }">active</c:if>">
+									<a href="${item.url }" target="_blank"><img src="${item.picture }" height="386px;" class="d-block w-100" alt="..."></a>
+								</div>
+							</c:forEach>
 						</div>
-						<div class="carousel-item">
-							<img
-								src="/public/images/car2.jpg"
-								height="386px;" class="d-block w-100" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img
-								src="/public/images/ma1.jpg"
-								height="386px;" class="d-block w-100" alt="...">
-						</div>
+						<a class="carousel-control-prev" href="#carouselExampleControls"
+							role="button" data-slide="prev"> <span
+							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+							class="sr-only">Previous</span>
+						</a> <a class="carousel-control-next" href="#carouselExampleControls"
+							role="button" data-slide="next"> <span
+							class="carousel-control-next-icon" aria-hidden="true"></span> <span
+							class="sr-only">Next</span>
+						</a>
 					</div>
-					<a class="carousel-control-prev" href="#carouselExampleControls"
-						role="button" data-slide="prev"> <span
-						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-						class="sr-only">Previous</span>
-					</a> <a class="carousel-control-next" href="#carouselExampleControls"
-						role="button" data-slide="next"> <span
-						class="carousel-control-next-icon" aria-hidden="true"></span> <span
-						class="sr-only">Next</span>
-					</a>
-				</div>
+				</c:if>
 				<!-- 频道下的文章分类 -->
 					<ul class="nav nav-tabs">
 						<c:if test="${cateList!=null && cateList.size()>0 }">
@@ -92,24 +89,13 @@
 				<div class="right">
 					<div>最新文章</div>
 					<ul class="list-unstyled">
-						<li class="media"><img
-							src="http://p1.pstatp.com/large/pgc-image/4ab237b9682f4c0286da5c5e6823dc87"
-							style="height: 72px; width: 72px;" class="mr-3" alt="...">
+						<c:forEach items="${newArticleList }" var="item">
+						<li class="media">
+							<a href="/article/detail/${item.id }.html"><img src="${item.picture }"	style="height: 72px; width: 72px;" class="mr-3" alt="..."></a>
 							<div class="media-body">
-								<h5 class="mt-0 mb-1">电子眼全面升级，新增5项功能！</h5>
+								<h5 class="mt-0 mb-1"><a href="/article/detail/${item.id }.html">${item.title }</a></h5>
 							</div></li>
-						<li class="media"><img
-							src="http://p1.pstatp.com/large/pgc-image/4ab237b9682f4c0286da5c5e6823dc87"
-							style="height: 72px; width: 72px;" class="mr-3" alt="...">
-							<div class="media-body">
-								<h5 class="mt-0 mb-1">电子眼全面升级，新增5项功能！</h5>
-							</div></li>
-						<li class="media"><img
-							src="http://p1.pstatp.com/large/pgc-image/4ab237b9682f4c0286da5c5e6823dc87"
-							style="height: 72px; width: 72px;" class="mr-3" alt="...">
-							<div class="media-body">
-								<h5 class="mt-0 mb-1">电子眼全面升级，新增5项功能！</h5>
-							</div></li>
+						</c:forEach>
 					</ul>
 				</div>
 				<div class="right">
