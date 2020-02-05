@@ -12,6 +12,7 @@ import com.hexudong.cms.common.CmsMd5Util;
 import com.hexudong.cms.dao.UserDao;
 import com.hexudong.cms.pojo.User;
 import com.hexudong.cms.service.UserService;
+import com.hexudong.utils.entity.RandomUtil;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -70,6 +71,13 @@ public class UserServiceImpl implements UserService{
 			user.setLocked(0);
 		}
 		return userDao.update(user)>0;
+	}
+
+	@Override
+	public Integer getRandomUserId() {
+		List<Integer> userIdList = userDao.selectIdList();
+		int random = RandomUtil.random(0, userIdList.size()-1);
+		return userIdList.get(random);
 	}
 	
 }

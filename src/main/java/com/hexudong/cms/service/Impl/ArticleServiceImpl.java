@@ -11,14 +11,13 @@ import com.github.pagehelper.PageInfo;
 import com.hexudong.cms.dao.ArticleDao;
 import com.hexudong.cms.dao.CategoryDao;
 import com.hexudong.cms.dao.ChannelDao;
-import com.hexudong.cms.dao.CommentDao;
 import com.hexudong.cms.dao.UserDao;
 import com.hexudong.cms.pojo.Article;
 import com.hexudong.cms.pojo.Category;
 import com.hexudong.cms.pojo.Channel;
-import com.hexudong.cms.pojo.Comment;
 import com.hexudong.cms.pojo.User;
 import com.hexudong.cms.service.ArticleService;
+import com.hexudong.utils.entity.RandomUtil;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
@@ -31,8 +30,6 @@ public class ArticleServiceImpl implements ArticleService{
 	@Autowired
 	private UserDao userDao;
 
-	private CommentDao commentDao;
-	
 	@Override
 	public List<Channel> getChannelAll() {
 		return channelDao.select(null);
@@ -171,10 +168,29 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleDao.select(article);
 	}
 
-	//添加评论
 	@Override
-	public void addComment(Comment comment) {
-		commentDao.addComment(comment);
+	public List<Article> getRelArticelList(Integer channelId, Integer cateId, Integer articleId, Integer pageSize) {
+		Article article = new Article();
+		article.setChannel_id(channelId);
+//		article.setCategory_id(cateId);
+		article.setId(articleId);
+		PageHelper.startPage(1, pageSize);
+		List<Article> articleList = articleDao.select(article);
+		return articleList;
+	}
+
+	@Override
+	public boolean updateCommentCnt(Integer id) {
+		Article article = articleDao.selectById(id);
+		article.setCommentCnt(article.getCommentCnt()+1);
+		return articleDao.update(article)>0;
+	}
+
+	@Override
+	public Integer getRandomArticleId() {
+		List<Integer> articleIdList = articleDao.selectIdList();
+		int random = RandomUtil.random(0, articleIdList.size()-1);
+		return articleIdList.get(random);
 	}
 	
 }

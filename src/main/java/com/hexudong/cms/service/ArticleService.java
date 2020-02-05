@@ -132,12 +132,32 @@ public interface ArticleService {
 	List<Article> getNewList(Integer pageSize);
 	
 	/**
-	 * 
-	    * @Title: addComment
-	    * @Description: 根据用户添加评论
-	    * @param @param comment    参数
-	    * @return void    返回类型
-	    * @throws
+	 * @Title: getList   
+	 * @Description: 根据频道Id和分类Id查询文章，且文章id不能等于articleId   
+	 * @param: @param channelId
+	 * @param: @param cateId
+	 * @param: @param articleId
+	 * @param: @param pageSize
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
 	 */
-	void addComment(Comment comment);
+	List<Article> getRelArticelList(Integer channelId,Integer cateId,Integer articleId,Integer pageSize);
+	/**
+	 * @Title: updateCommentCnt   
+	 * @Description: 修改文章的评论数量   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean updateCommentCnt(Integer id);
+	/**
+	 * @Title: getRandomArticleId   
+	 * @Description: 获取随机文章Id   
+	 * @param: @return      
+	 * @return: Integer      
+	 * @throws
+	 */
+	Integer getRandomArticleId();
 }

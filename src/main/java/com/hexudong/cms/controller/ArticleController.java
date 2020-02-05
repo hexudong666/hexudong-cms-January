@@ -82,7 +82,9 @@ public class ArticleController {
 	 * @throws
 	 */
 	@RequestMapping("/articles")
-	public String articles(Article article,Model model,HttpSession session,@RequestParam(value="pageNum",defaultValue="1") Integer pageNum,@RequestParam(value="pageSize",defaultValue="2") Integer pageSize) {
+	public String articles(Article article,Model model,HttpSession session,
+			@RequestParam(value="pageNum",defaultValue="1") Integer pageNum,
+			@RequestParam(value="pageSize",defaultValue="2") Integer pageSize) {
 		User userInfo = (User)session.getAttribute(CmsConst.UserSessionKey);
 		article.setUser_id(userInfo.getId());
 		PageInfo<Article> pageInfo = articleService.getPageInfo(article, pageNum, pageSize);
@@ -102,23 +104,4 @@ public class ArticleController {
 		articleService.deleteByIds(ids);
 		return JsonResult.sucess();
 	}
-	/**
-	 * 
-	    * @Title: User_Comment
-	    * @Description: 用户评论
-	    * @param @return    参数
-	    * @return JsonResult    返回类型
-	    * @throws
-	 */
-	@RequestMapping("user_comment")
-	public JsonResult User_Comment(Comment comment,Model model,HttpSession session,Article article) {
-		articleService.addComment(comment);
-		//还得查询一下用户名字
-		User userInfo = (User)session.getAttribute(CmsConst.UserSessionKey);
-		article.setUser_id(userInfo.getId());
-		
-		model.addAttribute("comment", comment);
-		return JsonResult.sucess();
-	}
-	
 }
