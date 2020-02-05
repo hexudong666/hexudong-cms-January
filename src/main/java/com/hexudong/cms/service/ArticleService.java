@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.hexudong.cms.pojo.Article;
 import com.hexudong.cms.pojo.Category;
 import com.hexudong.cms.pojo.Channel;
+import com.hexudong.cms.pojo.Comment;
 
 public interface ArticleService {
 	/**
@@ -129,4 +130,14 @@ public interface ArticleService {
 	 * @throws
 	 */
 	List<Article> getNewList(Integer pageSize);
+	
+	/**
+	 * 
+	    * @Title: addComment
+	    * @Description: 根据用户添加评论
+	    * @param @param comment    参数
+	    * @return void    返回类型
+	    * @throws
+	 */
+	void addComment(Comment comment);
 }

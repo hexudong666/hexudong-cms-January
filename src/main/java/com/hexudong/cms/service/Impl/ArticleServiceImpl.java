@@ -11,10 +11,12 @@ import com.github.pagehelper.PageInfo;
 import com.hexudong.cms.dao.ArticleDao;
 import com.hexudong.cms.dao.CategoryDao;
 import com.hexudong.cms.dao.ChannelDao;
+import com.hexudong.cms.dao.CommentDao;
 import com.hexudong.cms.dao.UserDao;
 import com.hexudong.cms.pojo.Article;
 import com.hexudong.cms.pojo.Category;
 import com.hexudong.cms.pojo.Channel;
+import com.hexudong.cms.pojo.Comment;
 import com.hexudong.cms.pojo.User;
 import com.hexudong.cms.service.ArticleService;
 
@@ -29,6 +31,8 @@ public class ArticleServiceImpl implements ArticleService{
 	@Autowired
 	private UserDao userDao;
 
+	private CommentDao commentDao;
+	
 	@Override
 	public List<Channel> getChannelAll() {
 		return channelDao.select(null);
@@ -167,4 +171,10 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleDao.select(article);
 	}
 
+	//添加评论
+	@Override
+	public void addComment(Comment comment) {
+		commentDao.addComment(comment);
+	}
+	
 }

@@ -88,6 +88,23 @@
 
 		</div>
 	</div>
+	
+	<!-- 显示评论 -->
+	${comment.userId}用户在${comment.created}给本文章评论了${comment.content}
+	
+	<!-- 添加评论 -->
+	<div class="comment">
+		<form action="user_comment" method="post">
+			<div class="input-group flex-nowrap">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text" id="addon-wrapping">评论</span>
+			  	</div>
+			  <input type="text" class="form-control" placeholder="请输入评论" aria-label="请输入评论" aria-describedby="addon-wrapping">
+			  <input type="submit" name="pl" value="添加评论">
+			</div>
+		</form>
+	</div>
+	
 	<script src="/public/js/jquery.min.1.12.4.js"></script>
 	<script src="/public/js/bootstrap.min.js"></script>
 </body>

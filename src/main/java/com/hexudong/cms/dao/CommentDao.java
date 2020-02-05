@@ -4,4 +4,6 @@ import com.hexudong.cms.pojo.Comment;
 
 public interface CommentDao extends BaseDao<Comment>{
 
+	void addComment(Comment comment);
+
 }
