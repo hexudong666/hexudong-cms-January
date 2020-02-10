@@ -17,7 +17,7 @@
 		<div class="row offset-1">
 			<!-- 频道 -->
 			<div class="col-1" style="padding-right: 5px;padding-left: 5px;">
-				<h2>1710F</h2>
+				<h2>1710F<br>贺旭东</h2>
 				<ul class="nav flex-column">
 					<li class="nav-item "><a class="nav-link <c:if test="${channelId==null }">active</c:if>" href="/">热点</a></li>
 					<c:forEach items="${channelList }" var="item">
