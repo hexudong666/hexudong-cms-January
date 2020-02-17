@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hexudong.cms.common.CmsConst;
 import com.hexudong.cms.common.CmsMd5Util;
 import com.hexudong.cms.common.JsonResult;
+import com.hexudong.cms.dao.CollectDao;
+import com.hexudong.cms.pojo.Collect;
 import com.hexudong.cms.pojo.User;
 import com.hexudong.cms.service.UserService;
 import com.hexudong.utils.entity.StringUtil;
@@ -23,6 +25,7 @@ import com.hexudong.utils.entity.StringUtil;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	
 	/**
 	 * @Title: userCenter   
 	 * @Description: 用户中心   
@@ -154,5 +157,22 @@ public class UserController {
 		userService.set(user);
 		return JsonResult.sucess();
 	}
+	
+	
+	/*@GetMapping("/sc")
+	private String sc(Integer id,Model model) {
+		Collect collect = collectService.selectByid(id);
+		model.addAttribute("collect", collect);
+		return "user/sc";
+	}
+	
+	@RequestMapping("delSc")
+	private boolean delSc(Integer id) {
+		boolean delSc = collectService.delSc(id);
+		if (delSc) {
+			return true;
+		}
+		return false;
+	}*/
 	
 }

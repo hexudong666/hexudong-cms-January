@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hexudong.cms.common.CmsMd5Util;
+import com.hexudong.cms.dao.CollectDao;
 import com.hexudong.cms.dao.UserDao;
+import com.hexudong.cms.pojo.Collect;
 import com.hexudong.cms.pojo.User;
 import com.hexudong.cms.service.UserService;
 import com.hexudong.utils.entity.RandomUtil;
@@ -19,6 +21,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDao;
 
+	@Autowired
+	private CollectDao collectDao;
+	
 	@Override
 	public boolean register(User user) {
 		/** 设置密码 **/
@@ -78,6 +83,11 @@ public class UserServiceImpl implements UserService{
 		List<Integer> userIdList = userDao.selectIdList();
 		int random = RandomUtil.random(0, userIdList.size()-1);
 		return userIdList.get(random);
+	}
+	
+	@Override
+	public Collect selectByid(Integer id) {
+		return collectDao.selectById(id);
 	}
 	
 }

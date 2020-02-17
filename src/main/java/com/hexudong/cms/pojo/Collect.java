@@ -3,15 +3,15 @@ package com.hexudong.cms.pojo;
 import java.util.Date;
 
 public class Collect {
-	/**  **/
+	/** 文章id **/
 	private Integer id;
-	/**  **/
+	/** 收藏夹文本 **/
 	private String text;
-	/**  **/
+	/** 收藏夹地址 **/
 	private String url;
-	/**  **/
+	/** 添加时间 **/
 	private Date created;
-	/**  **/
+	/** 所属用户 **/
 	private Integer user_id;
 	public Integer getId() {
 		return id;

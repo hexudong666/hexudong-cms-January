@@ -160,4 +160,15 @@ public interface ArticleService {
 	 * @throws
 	 */
 	Integer getRandomArticleId();
+	
+	/**
+	 * @param user_id 
+	    * @Title: articleSc
+	    * @Description: 收藏文章
+	    * @param @param id
+	    * @param @return    参数
+	    * @return boolean    返回类型
+	    * @throws
+	 */
+	boolean articleSc(Integer id, Integer user_id);
 }

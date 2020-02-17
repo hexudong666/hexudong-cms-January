@@ -28,7 +28,6 @@
 
 	<delete id="delete">
 		DELETE FROM cms_collect WHERE id in(${ids})
-
 	</delete>
 
 </mapper>

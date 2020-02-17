@@ -104,4 +104,21 @@ public class ArticleController {
 		articleService.deleteByIds(ids);
 		return JsonResult.sucess();
 	}
+	
+	
+	
+/*	@RequestMapping("articleSc")
+	private String articleSc(Integer id,Integer user_id) {
+		boolean cc = articleService.articleSc(id,user_id);
+		if (cc) {
+			return "article-detail";
+		}else {
+			return "login";
+		}
+	}*/
+	
+	
+	
+	
+	
 }

@@ -193,4 +193,9 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleIdList.get(random);
 	}
 	
+	@Override
+	public boolean articleSc(Integer id,Integer user_id) {
+		return articleDao.articleSc(id,user_id);
+	}
+	
 }

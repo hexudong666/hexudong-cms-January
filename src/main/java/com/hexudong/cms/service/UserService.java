@@ -1,6 +1,7 @@
 package com.hexudong.cms.service;
 
 import com.github.pagehelper.PageInfo;
+import com.hexudong.cms.pojo.Collect;
 import com.hexudong.cms.pojo.User;
 
 public interface UserService {
@@ -78,4 +79,14 @@ public interface UserService {
 	 * @throws
 	 */
 	Integer getRandomUserId();
+
+	/**
+	    * @Title: selectByid
+	    * @Description: 跟句收藏id查询数据库查询人员id
+	    * @param @param id
+	    * @param @return    参数
+	    * @return Collect    返回类型
+	    * @throws
+	 */
+	public Collect selectByid(Integer id);
 }

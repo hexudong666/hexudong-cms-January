@@ -75,6 +75,7 @@
 					  </ul>
 					</nav> -->
 					<jsp:include page="./common/page.jsp"></jsp:include>
+					<a href="/article/articleSc?id="${item.id}>收藏</a>
 				</div>
 				
 				</form>
